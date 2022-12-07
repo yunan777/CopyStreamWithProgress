@@ -1,4 +1,5 @@
-## Example
+# Example
+
 ```c#
 using CopyStreamWithProgress;
 using System.IO.Pipelines;
@@ -28,35 +29,40 @@ internal class Example
 }
 ```
 
-# Class: PipeReaderExtension
+## Class: PipeReaderExtension
+
 Contains extension methods overload the PipeReader.CopyToAsync, with IProgress support.
 
-## Definition
+### Definition
+
 ```c#
 public static class PipeReaderExtension
 ```
+
 Namespace: CopyStreamWithProgress
 
-## Methods
+### Methods
+
 ```c#
 public static async Task CopyToAsync(this PipeReader pipeReader, Stream stream, IProgress<int> progress, CancellationToken cancellationToken = default);
-
 ```
 
+## Class: StreamExtension
 
-# Class: StreamExtension
 Contains extension methods overload the Stream.CopyToAsync. Using pipeline for speed, with IProgress support.
 
-## Definition
+### Definition
+
 ```c#
 public static class StreamExtension
 ```
+
 Namespace: CopyStreamWithProgress
 
-## Methods
+### Methods
+
 ```c#
 public static async Task CopyToAsync(this Stream source, Stream destination, Pipe pipe, IProgress<int> progress, bool reportAtRead = true, CancellationToken cancellationToken = default);
 
 public static async Task CopyToAsync(this Stream stream, PipeWriter pipeWriter, IProgress<int> progress, CancellationToken cancellationToken = default);
-
 ```
